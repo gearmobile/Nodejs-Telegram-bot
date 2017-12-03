@@ -1,0 +1,24 @@
+{
+  "name": "telegram_bot",
+  "version": "0.0.1",
+  "description": "Dimasik91_bot",
+  "main": "index.js",
+  "dependencies": {
+    "axios": "^0.17.1",
+    "node-telegram-bot-api": "^0.29.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/doroninds/Dimasik91_bot.git"
+  },
+  "author": "doroninds",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/doroninds/Dimasik91_bot/issues"
+  },
+  "homepage": "https://github.com/doroninds/Dimasik91_bot#readme"
+}
