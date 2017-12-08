@@ -2,7 +2,7 @@ const TelegramBot = require('node-telegram-bot-api');
 const roll = require('./bot_modules/roll');
 const crypta = require('./bot_modules/crypta');
 const reddit = require('./bot_modules/reddit');
-const storage = require('./storage/index.json');
+const joke = require('./bot_modules/joke');
 const _env = require('./env');
 
 
@@ -25,14 +25,16 @@ bot.onText(/\/hi/, (msg) => {
 
 bot.onText(/\/crypta/, (msg) => {
   const chatId = msg.chat.id;
-  bot.sendMessage(chatId, crypta.price);
+  bot.sendMessage(chatId, crypta.price().then(price => bot.sendMessage(chatId, price)));
 });
-bot.onText(/\/json/, (msg) => {
-  const chatId = msg.chat.id;
-  bot.sendMessage(chatId, storage.data[0].location);
-});
+
 bot.onText(/\/reddit/, (msg) => {
   const chatId = msg.chat.id;
 
-  bot.sendMessage(chatId, reddit.content)
+  bot.sendMessage(chatId, reddit.feeds().then(feed => bot.sendMessage(chatId, feed)));
+});
+
+bot.onText(/\/joke/, (msg) => {
+  const chatId = msg.chat.id;
+  bot.sendMessage(chatId, joke.get().then(joke => bot.sendMessage(chatId, joke)));
 });
