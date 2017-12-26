@@ -5,13 +5,14 @@
   "main": "index.js",
   "dependencies": {
     "axios": "^0.17.1",
-    "node-telegram-bot-api": "^0.29.0"
+    "node-telegram-bot-api": "^0.29.0",
+    "nodemon": "^1.14.3"
   },
   "devDependencies": {
     "nodemon": "^1.12.1"
   },
   "scripts": {
-    "run":  "nodemon index.js",
+    "run": "nodemon index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {

@@ -28,11 +28,15 @@ bot.onText(/\/help/, (msg) => {
   const chatId = msg.chat.id;
   bot.sendMessage(chatId, help.info);
 });
-bot.onText(/\/crypta/, (msg) => {
+// bot.onText(/\/crypta/, (msg) => {
+//   const chatId = msg.chat.id;
+//   bot.sendMessage(chatId, crypta.price().then(price => bot.sendMessage(chatId, price)));
+// });
+bot.onText(/\/crypto/, (msg, match) => {
   const chatId = msg.chat.id;
+  crypta.coin = (msg.text.split(' ')[1]) ? msg.text.split(' ')[1] : 'bitcoin';
   bot.sendMessage(chatId, crypta.price().then(price => bot.sendMessage(chatId, price)));
 });
-
 bot.onText(/\/weather/, (msg) => {
   const chatId = msg.chat.id;
   weather.city = (msg.text.split(' ')[1]) ? msg.text.split(' ')[1] : 'Saratov';
